@@ -1,0 +1,552 @@
+/* ===== CONTACT POPUP - MODERN GLASS UI WITH STAGGERED ANIMATION ===== */
+
+.contact-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 20, 0.85);
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.contact-popup .popup-card {
+  position: relative;
+  width: min(480px, 95vw);
+  background: linear-gradient(180deg, 
+    rgba(26, 31, 58, 0.98),
+    rgba(15, 18, 38, 0.95));
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(0, 217, 255, 0.1) inset,
+    0 0 40px rgba(0, 217, 255, 0.2);
+  color: #fff;
+  padding: 32px 28px 28px;
+  animation: popupSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes popupSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== CLOSE BUTTON ===== */
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255, 59, 48, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+  z-index: 10;
+}
+
+.popup-close:hover {
+  background: rgba(255, 59, 48, 0.9);
+  transform: rotate(90deg) scale(1.05);
+  box-shadow: 0 4px 20px rgba(255, 59, 48, 0.5);
+}
+
+.popup-close:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* ===== HEADER ===== */
+.popup-header {
+  text-align: center;
+  margin: 0 0 32px;
+  opacity: 0;
+  animation: slideUpFadeIn 0.5s ease forwards;
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popup-header .badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.25), rgba(122, 167, 255, 0.25));
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #00d9ff;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+.popup-header h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 10px;
+  background: linear-gradient(135deg, #fff, #00d9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+}
+
+.popup-header .subtitle {
+  opacity: 0.8;
+  font-size: 14px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== CONTACT ITEMS CONTAINER ===== */
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== CONTACT ITEM ===== */
+.contact-item {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Staggered animation for each item */
+.contact-item:nth-child(1) {
+  animation: slideUpFadeIn 0.5s ease 0.2s forwards;
+}
+
+.contact-item:nth-child(2) {
+  animation: slideUpFadeIn 0.5s ease 0.35s forwards;
+}
+
+.contact-item:nth-child(3) {
+  animation: slideUpFadeIn 0.5s ease 0.5s forwards;
+}
+
+.contact-item:nth-child(4) {
+  animation: slideUpFadeIn 0.5s ease 0.65s forwards;
+}
+
+.contact-item:nth-child(5) {
+  animation: slideUpFadeIn 0.5s ease 0.8s forwards;
+}
+
+/* ===== BUTTONS ===== */
+.btn.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 56px;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.btn.pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn.pill:hover::before {
+  transform: translateX(100%);
+}
+
+.btn.pill:active {
+  transform: scale(0.96);
+}
+
+.btn.pill i {
+  font-size: 22px;
+}
+
+/* Telegram Button */
+.btn.telegram {
+  background: linear-gradient(135deg, #2ea6ff, #1283ff);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(18, 131, 255, 0.4);
+  border-color: rgba(46, 166, 255, 0.5);
+}
+
+.btn.telegram:hover {
+  background: linear-gradient(135deg, #3fb4ff, #1f8fff);
+  box-shadow: 0 8px 35px rgba(18, 131, 255, 0.6);
+  transform: translateY(-3px);
+}
+
+/* WhatsApp Button */
+.btn.whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  border-color: rgba(37, 211, 102, 0.5);
+}
+
+.btn.whatsapp:hover {
+  background: linear-gradient(135deg, #2ee673, #15a084);
+  box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6);
+  transform: translateY(-3px);
+}
+
+/* Zalo Button */
+.btn.zalo {
+  background: linear-gradient(135deg, #0068FF, #0052CC);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 104, 255, 0.4);
+  border-color: rgba(0, 104, 255, 0.5);
+}
+
+.btn.zalo:hover {
+  background: linear-gradient(135deg, #1a7aff, #0060e6);
+  box-shadow: 0 8px 35px rgba(0, 104, 255, 0.6);
+  transform: translateY(-3px);
+}
+
+/* Discord Button */
+.btn.discord {
+  background: linear-gradient(135deg, #5865F2, #4752C4);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4);
+  border-color: rgba(88, 101, 242, 0.5);
+}
+
+.btn.discord:hover {
+  background: linear-gradient(135deg, #6875ff, #5865F2);
+  box-shadow: 0 8px 35px rgba(88, 101, 242, 0.6);
+  transform: translateY(-3px);
+}
+
+/* Email Button */
+.btn.email {
+  background: linear-gradient(135deg, #EA4335, #C5221F);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(234, 67, 53, 0.4);
+  border-color: rgba(234, 67, 53, 0.5);
+}
+
+.btn.email:hover {
+  background: linear-gradient(135deg, #f5564a, #d43d30);
+  box-shadow: 0 8px 35px rgba(234, 67, 53, 0.6);
+  transform: translateY(-3px);
+}
+
+/* Ghost/Copy Button */
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  min-width: 110px;
+  flex: 0 0 auto;
+}
+
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(0, 217, 255, 0.5);
+  color: #00d9ff;
+  box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+/* ===== HINT TEXT ===== */
+.hint {
+  text-align: center;
+  opacity: 0;
+  font-size: 13px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  animation: slideUpFadeIn 0.5s ease 0.95s forwards;
+}
+
+/* ===== CONTACT FAB BUTTON ===== */
+.contact-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #00d9ff, #0099cc);
+  border: 3px solid rgba(0, 217, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 
+    0 4px 20px rgba(0, 217, 255, 0.5),
+    0 0 0 0 rgba(0, 217, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 
+      0 4px 20px rgba(0, 217, 255, 0.5),
+      0 0 0 0 rgba(0, 217, 255, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 8px 40px rgba(0, 217, 255, 0.8),
+      0 0 0 20px rgba(0, 217, 255, 0);
+  }
+}
+
+.contact-fab:hover {
+  background: linear-gradient(135deg, #00eeff, #00b8e6);
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 8px 40px rgba(0, 217, 255, 0.8);
+  animation: none;
+}
+
+.contact-fab:active {
+  transform: scale(0.98);
+}
+
+.contact-fab i {
+  font-size: 30px;
+  color: white;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .contact-popup .popup-card {
+    padding: 28px 20px 24px;
+    border-radius: 20px;
+  }
+  
+  .popup-header h2 {
+    font-size: 24px;
+  }
+  
+  .popup-header .subtitle {
+    font-size: 13px;
+  }
+  
+  .popup-header {
+    margin-bottom: 28px;
+  }
+  
+  .contact-items {
+    gap: 14px;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn.ghost {
+    min-width: auto;
+  }
+  
+  .btn.pill {
+    padding: 14px 20px;
+    min-height: 52px;
+    font-size: 14px;
+  }
+  
+  .btn.pill i {
+    font-size: 20px;
+  }
+  
+  .hint {
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  
+  .contact-fab {
+    width: 58px;
+    height: 58px;
+    right: 16px;
+    bottom: 16px;
+  }
+  
+  .contact-fab i {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-popup .popup-card {
+    padding: 24px 18px 20px;
+  }
+  
+  .popup-header h2 {
+    font-size: 22px;
+  }
+  
+  .popup-header {
+    margin-bottom: 24px;
+  }
+  
+  .contact-items {
+    gap: 12px;
+  }
+  
+  .btn.pill {
+    padding: 13px 18px;
+    min-height: 50px;
+    font-size: 13px;
+  }
+  
+  .btn.pill i {
+    font-size: 19px;
+  }
+  
+  .contact-fab {
+    width: 54px;
+    height: 54px;
+  }
+  
+  .contact-fab i {
+    font-size: 24px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.btn.pill:focus-visible,
+.popup-close:focus-visible,
+.contact-fab:focus-visible {
+  outline: 3px solid #00d9ff;
+  outline-offset: 3px;
+}
+
+/* ===== SMOOTH SCROLLBAR ===== */
+.contact-popup .popup-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.contact-popup .popup-card::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.contact-popup .popup-card::-webkit-scrollbar-thumb {
+  background: rgba(0, 217, 255, 0.5);
+  border-radius: 10px;
+}
+
+.contact-popup .popup-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 217, 255, 0.7);
+}
+
+/* ===== PREVENT BODY SCROLL WHEN OPEN ===== */
+body.contact-open {
+  overflow: hidden;
+}
+
+/* ===== ADDITIONAL HOVER EFFECTS ===== */
+.contact-item:hover .btn.pill:not(:hover) {
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+.contact-item .btn.pill {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== GLOW EFFECT ON HOVER ===== */
+.btn.pill:hover {
+  filter: brightness(1.1);
+}
+
+.btn.telegram:hover {
+  box-shadow: 
+    0 8px 35px rgba(18, 131, 255, 0.6),
+    0 0 50px rgba(18, 131, 255, 0.3);
+}
+
+.btn.whatsapp:hover {
+  box-shadow: 
+    0 8px 35px rgba(37, 211, 102, 0.6),
+    0 0 50px rgba(37, 211, 102, 0.3);
+}
+
+.btn.zalo:hover {
+  box-shadow: 
+    0 8px 35px rgba(0, 104, 255, 0.6),
+    0 0 50px rgba(0, 104, 255, 0.3);
+}
+
+.btn.discord:hover {
+  box-shadow: 
+    0 8px 35px rgba(88, 101, 242, 0.6),
+    0 0 50px rgba(88, 101, 242, 0.3);
+}
+
+.btn.email:hover {
+  box-shadow: 
+    0 8px 35px rgba(234, 67, 53, 0.6),
+    0 0 50px rgba(234, 67, 53, 0.3);
+}
